@@ -6,14 +6,13 @@ const emailRouter = require("./services/emailServices");
 const cors = require("cors");
 const { connectDatabase } = require("./config/dbConfig");
 const portfolioRoute = require("./routes/portfolioRoute");
-// const path = require("path");
-// ------------------------Deployment-----------------------------
-// app.use(express.static(path.join(__dirname, "../frontend/my-app/build")));
 
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "../frontend/my-app/build/index.html"));
-// });
 // ------------------------Deployment-----------------------------
+app.get("/", (req, res) => {
+  res.send("Backend server deployed successfully.");
+});
+// ------------------------Deployment-----------------------------
+
 app.use(cors());
 app.use(express.json());
 app.use("/api/email", emailRouter);
